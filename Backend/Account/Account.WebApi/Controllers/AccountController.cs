@@ -1,4 +1,5 @@
-﻿using Account.Service.Interfaces;
+﻿using Account.Data.Interfaces;
+using Account.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Account.WebApi.Controllers
@@ -7,17 +8,20 @@ namespace Account.WebApi.Controllers
     [ApiController]
     public class AccountController
     {
-        private readonly IAccountService _accountService;
+        private readonly IUnitOfWork _accountService;
 
-        public AccountController(IAccountService accountService)
+        public AccountController(IUnitOfWork accountService)
         {
             _accountService = accountService;
         }
 
-        [HttpGet("")]
+        [HttpGet("getAccountById")]
         public Domain.Account GetAccountById(int id)
         {
+            _accountService.Accounts.GetAll();
             return null;
         }
+
+
     }
 }

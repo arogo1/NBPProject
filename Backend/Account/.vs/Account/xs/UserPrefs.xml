@@ -1,30 +1,35 @@
 ﻿<Properties StartupConfiguration="{3D0A2AE8-C9DD-4C6E-B99E-4B676882EA74}|Default">
-  <MonoDevelop.Ide.ItemProperties.Account.Service FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Account.Service/Class1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Account.Data/UnitOfWork/UnitOfWork.cs">
     <Files>
       <File FileName="Account.WebApi/Controllers/AccountController.cs" Line="24" Column="1" />
-      <File FileName="Account.WebApi/Startup.cs" />
-      <File FileName="Account.WebApi/appsettings.json" />
+      <File FileName="Account.WebApi/Startup.cs" Line="39" Column="29" />
+      <File FileName="Account.WebApi/appsettings.json" Line="1" Column="1" />
       <File FileName="Account.WebApi/Program.cs" />
-      <File FileName="Account.Data/AccountContext.cs" />
-      <File FileName="Account.WebApi/Account.WebApi.csproj" Line="1" Column="1" />
-      <File FileName="Account.Service/Class1.cs" Line="1" Column="1" />
-      <File FileName="Account.Service/Interfaces/IAccountService.cs" Line="1" Column="1" />
+      <File FileName="Account.Data/AccountContext.cs" Line="9" Column="10" />
+      <File FileName="Account.WebApi/Account.WebApi.csproj" />
+      <File FileName="Account.Service/Interfaces/IAccountService.cs" />
+      <File FileName="Account.Data/UnitOfWork/UnitOfWork.cs" Line="15" Column="1" />
+      <File FileName="Account.Data/Account.Data.csproj" Line="1" Column="1" />
+      <File FileName="Account.Data/Interfaces/IGenericRepository.cs" Line="1" Column="1" />
+      <File FileName="Account.Data/Repositories/GenericRepository.cs" Line="1" Column="1" />
+      <File FileName="Account.Data/Repositories/AccountRepository.cs" Line="1" Column="1" />
+      <File FileName="Account.Data/Interfaces/IUnitOfWork.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Account" expanded="True">
-            <Node name="Account.Service" expanded="True">
+            <Node name="Account.Data" expanded="True">
               <Node name="Interfaces" expanded="True" />
-              <Node name="Class1.cs" selected="True" />
+              <Node name="Repositories" expanded="True" />
+              <Node name="UnitOfWork" expanded="True">
+                <Node name="UnitOfWork.cs" selected="True" />
+              </Node>
             </Node>
             <Node name="Account.WebApi" expanded="True">
               <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="Controllers" expanded="True" />
             </Node>
           </Node>
         </State>
