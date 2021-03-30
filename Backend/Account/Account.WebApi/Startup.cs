@@ -42,6 +42,7 @@ namespace Account.WebApi
             #endregion
 
             services.AddSwaggerGen((options) =>
+<<<<<<< HEAD
             {
                 options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo() { Title = "Account API" });
             });
@@ -58,6 +59,22 @@ namespace Account.WebApi
 
             app.UseSwagger();
 
+=======
+            {
+                options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo() { Title = "Account API" });
+            });
+
+            services.AddAuthorization();
+            services.AddControllers();
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+
+            app.UseSwagger();
+
+>>>>>>> 5cdad436ed413194648759faa3ad8b9354f58207
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("v1/swagger.json", "Account API");

@@ -1,11 +1,16 @@
+<<<<<<< HEAD
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Account.Data.Interfaces;
+=======
+﻿using Account.Data.Interfaces;
+>>>>>>> 5cdad436ed413194648759faa3ad8b9354f58207
 using Account.Service.Interfaces;
 using Account.Service.Models.DTO;
 using Account.Service.Models.Query;
 using AutoMapper;
 
+<<<<<<< HEAD
 namespace Account.Service
 {
     public class AccountService : IAccountService
@@ -14,6 +19,15 @@ namespace Account.Service
         private readonly IMapper _mapper;
 
         public AccountService(IUnitOfWork unitOfWork, IMapper mapper)
+=======
+namespace Account.Service
+{
+    public class AccountService : IAccountService
+    {
+        private readonly IUnitOfWork _unitOfWork;
+
+        public AccountService(IUnitOfWork unitOfWork)
+>>>>>>> 5cdad436ed413194648759faa3ad8b9354f58207
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+=======
+﻿using Account.Data.Interfaces;
+>>>>>>> 5cdad436ed413194648759faa3ad8b9354f58207
 using Account.Service.Interfaces;
 using Account.Service.Models.DTO;
 using Account.Service.Models.Query;
