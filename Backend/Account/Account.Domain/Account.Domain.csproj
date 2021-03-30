@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
-  </ItemGroup>
-</Project>
-=======
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -18,4 +5,3 @@
   </PropertyGroup>
 
 </Project>
->>>>>>> 5cdad436ed413194648759faa3ad8b9354f58207

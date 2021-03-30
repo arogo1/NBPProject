@@ -1,4 +1,5 @@
-﻿namespace Account.Service.Interfaces
+﻿using System;
+namespace Services.Interfaces
 {
     public interface IAccountService
     {

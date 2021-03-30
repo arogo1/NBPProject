@@ -38,19 +38,12 @@ namespace Account.WebApi
 
             #region Services
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<IAccountService, AccountService>();
+            services.AddSingleton<IAccountService, AccountService>();
             #endregion
 
-            services.AddSwaggerGen((options) =>
-<<<<<<< HEAD
-            {
+            services.AddSwaggerGen((options) => {
                 options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo() { Title = "Account API" });
             });
-
-            services.AddAuthorization();
-            services.AddControllers();
-
-            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,25 +52,9 @@ namespace Account.WebApi
 
             app.UseSwagger();
 
-=======
-            {
-                options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo() { Title = "Account API" });
-            });
-
-            services.AddAuthorization();
-            services.AddControllers();
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-
-            app.UseSwagger();
-
->>>>>>> 5cdad436ed413194648759faa3ad8b9354f58207
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("v1/swagger.json", "Account API");
+                c.SwaggerEndpoint("swagger/v1/swagger.json", "Account API");
             });
 
             if (env.IsDevelopment())
