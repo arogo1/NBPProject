@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Account.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Account.Data.Repositories
 {
@@ -13,33 +15,38 @@ namespace Account.Data.Repositories
         {
             _context = context;
         }
-        public void Add(T entity)
+
+        public async Task<T> GetByIdAsync(int id)
         {
-            _context.Set<T>().Add(entity);
+            return await _context.Set<T>().FindAsync(id);
         }
-        public void AddRange(IEnumerable<T> entities)
+
+        public async Task Add(T entity)
         {
-            _context.Set<T>().AddRange(entities);
+            await _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
-        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+
+        public async Task<int> Update(T entity)
         {
-            return _context.Set<T>().Where(expression);
+            _context.Entry(entity).State = EntityState.Modified;
+            return await _context.SaveChangesAsync();
         }
-        public IEnumerable<T> GetAll()
-        {
-            return _context.Set<T>().ToList();
-        }
-        public T GetById(int id)
-        {
-            return _context.Set<T>().Find(id);
-        }
-        public void Remove(T entity)
+
+        public async Task<int> Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
+            return await _context.SaveChangesAsync();
         }
-        public void RemoveRange(IEnumerable<T> entities)
+
+        public async Task<IEnumerable<T>> GetAll()
         {
-            _context.Set<T>().RemoveRange(entities);
+            return await _context.Set<T>().ToListAsync();
+        }
+
+        public async Task<IEnumerable<T>> GetWhere(Expression<Func<T, bool>> predicate)
+        {
+            return await _context.Set<T>().Where(predicate).ToListAsync();
         }
     }
 }

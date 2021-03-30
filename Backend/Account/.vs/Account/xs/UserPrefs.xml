@@ -1,34 +1,44 @@
 ﻿<Properties StartupConfiguration="{3D0A2AE8-C9DD-4C6E-B99E-4B676882EA74}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Account.Data/UnitOfWork/UnitOfWork.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Account.WebApi/Controllers/AccountController.cs">
     <Files>
-      <File FileName="Account.WebApi/Controllers/AccountController.cs" Line="24" Column="1" />
-      <File FileName="Account.WebApi/Startup.cs" Line="39" Column="29" />
-      <File FileName="Account.WebApi/appsettings.json" Line="1" Column="1" />
-      <File FileName="Account.WebApi/Program.cs" />
-      <File FileName="Account.Data/AccountContext.cs" Line="9" Column="10" />
+      <File FileName="Account.Data/UnitOfWork/UnitOfWork.cs" Line="1" Column="1" />
+      <File FileName="Account.Data/Account.Data.csproj" />
+      <File FileName="Account.Data/Interfaces/IGenericRepository.cs" />
+      <File FileName="Account.Data/Repositories/AccountRepository.cs" />
+      <File FileName="Account.Data/Interfaces/IUnitOfWork.cs" />
+      <File FileName="Account.Domain/Account.cs" />
+      <File FileName="Account.Service/Models/Enum/Role.cs" />
+      <File FileName="Account.Data/Interfaces/IAccountRepository.cs" />
+      <File FileName="Account.Service/Mapper/Mapper.cs" />
       <File FileName="Account.WebApi/Account.WebApi.csproj" />
+      <File FileName="Account.Service/Models/Query/SearchAccount.cs" />
+      <File FileName="Account.Service/Models/DTO/AccountDto.cs" />
+      <File FileName="Account.WebApi/Controllers/AccountController.cs" Line="81" Column="62" />
+      <File FileName="Account.Service/Models/Request/CreateAccountRequest.cs" />
+      <File FileName="Account.Service/AccountService.cs" />
       <File FileName="Account.Service/Interfaces/IAccountService.cs" />
-      <File FileName="Account.Data/UnitOfWork/UnitOfWork.cs" Line="15" Column="1" />
-      <File FileName="Account.Data/Account.Data.csproj" Line="1" Column="1" />
-      <File FileName="Account.Data/Interfaces/IGenericRepository.cs" Line="1" Column="1" />
-      <File FileName="Account.Data/Repositories/GenericRepository.cs" Line="1" Column="1" />
-      <File FileName="Account.Data/Repositories/AccountRepository.cs" Line="1" Column="1" />
-      <File FileName="Account.Data/Interfaces/IUnitOfWork.cs" Line="1" Column="1" />
+      <File FileName="Account.Data/Repositories/GenericRepository.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Account" expanded="True">
             <Node name="Account.Data" expanded="True">
-              <Node name="Interfaces" expanded="True" />
               <Node name="Repositories" expanded="True" />
-              <Node name="UnitOfWork" expanded="True">
-                <Node name="UnitOfWork.cs" selected="True" />
+            </Node>
+            <Node name="Account.Domain" expanded="True" />
+            <Node name="Account.Service" expanded="True">
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Mapper" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="DTO" expanded="True" />
+                <Node name="Query" expanded="True" />
+                <Node name="Request" expanded="True" />
               </Node>
             </Node>
             <Node name="Account.WebApi" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="AccountController.cs" selected="True" />
               </Node>
             </Node>
           </Node>
