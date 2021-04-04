@@ -11,5 +11,6 @@ namespace Account.Service.Interfaces
         Task<int> UpdateAccount(AccountDto accountToUpdateDto);
         Task AddNewAccount(AccountDto accountToCreateDto);
         Task<IEnumerable<AccountDto>> SearchAccount(SearchAccount query);
+        Task<int> DeleteAccount(AccountDto accountDto);
     }
 }

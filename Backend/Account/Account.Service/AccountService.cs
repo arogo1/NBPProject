@@ -27,14 +27,13 @@ namespace Account.Service
 
         public async Task<int> UpdateAccount(AccountDto accountToUpdateDto)
         {
-            var accountToUpdate = _mapper.Map<Domain.Account>(accountToUpdateDto);
-            return await _unitOfWork.Accounts.Update(accountToUpdate);
+            return await _unitOfWork.Accounts.Update(_mapper.Map<Domain.Account>(accountToUpdateDto));
         }
 
         public async Task AddNewAccount(AccountDto accountToCreateDto)
         {
-            var accountToCreate = _mapper.Map<Domain.Account>(accountToCreateDto);
-            await _unitOfWork.Accounts.Add(accountToCreate);
+            
+            await _unitOfWork.Accounts.Add(_mapper.Map<Domain.Account>(accountToCreateDto));
         }
 
         public async Task<IEnumerable<AccountDto>> SearchAccount(SearchAccount query)
@@ -43,6 +42,11 @@ namespace Account.Service
                 x.FirstName.Equals(query.FirstName) && x.LastName.Equals(query.LastName)
             );
             return null;
+        }
+
+        public async Task<int> DeleteAccount(AccountDto accountDto)
+        {
+            return await _unitOfWork.Accounts.Remove(_mapper.Map<Domain.Account>(accountDto));
         }
     }
 }

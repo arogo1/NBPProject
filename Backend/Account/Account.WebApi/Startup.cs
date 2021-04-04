@@ -59,7 +59,7 @@ namespace Account.WebApi
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("v1/swagger.json", "Account API");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Account API");
             });
 
             if (env.IsDevelopment())

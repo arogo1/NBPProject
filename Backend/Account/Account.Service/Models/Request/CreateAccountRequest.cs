@@ -11,10 +11,17 @@ namespace Account.Service.Models.Request
         [Required]
         public string LastName { get; set; }
 
+        [Required]
         public string Password { get; set; }
 
         [Required]
         public string Username { get; set; }
+
+        [Required]
+        public string Address { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
 
         [Required]
         public Role Role { get; set; }
