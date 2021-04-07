@@ -40,7 +40,7 @@ namespace Account.Data.Repositories
 
         public async Task<int> Update(T entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
+            _context.Set<T>().Update(entity);
             return await _context.SaveChangesAsync();
         }
 

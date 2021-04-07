@@ -32,7 +32,6 @@ namespace Account.Service
 
         public async Task AddNewAccount(AccountDto accountToCreateDto)
         {
-            
             await _unitOfWork.Accounts.Add(_mapper.Map<Domain.Account>(accountToCreateDto));
         }
 

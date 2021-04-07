@@ -70,7 +70,7 @@ namespace Account.WebApi.Controllers
 
         [HttpPut]
         [Route("updateAccount")]
-        public async Task<ActionResult> UpdatePassword(int id, [FromBody] UpdateAccountRequest request)
+        public async Task<ActionResult> UpdateAccount(int id, [FromBody] UpdateAccountRequest request)
         {
             try
             {

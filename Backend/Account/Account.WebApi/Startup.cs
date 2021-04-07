@@ -27,18 +27,17 @@ namespace Account.WebApi
         {
             services.AddDbContext<AccountContext>(options =>
                 options.UseSqlServer(
-                Configuration.GetConnectionString("DefaultConnection"),
-                b => b.MigrationsAssembly(typeof(AccountContext).Assembly.FullName)));
+                Configuration.GetConnectionString("DefaultConnection")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 
 
             #region Repositories
-            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IAccountRepository, AccountRepository>();
             #endregion
 
             #region Services
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<IAccountService, AccountService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IAccountService, AccountService>();
             #endregion
 
             services.AddSwaggerGen((options) => {

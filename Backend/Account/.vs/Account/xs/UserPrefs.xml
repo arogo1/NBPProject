@@ -1,12 +1,8 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{3D0A2AE8-C9DD-4C6E-B99E-4B676882EA74}|Default">
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Account.WebApi/Controllers/AccountController.cs" Line="104" Column="1" />
-      <File FileName="Account.WebApi/Startup.cs" Line="46" Column="16" />
-      <File FileName="Account.WebApi/appsettings.Development.json" />
-      <File FileName="Account.WebApi/appsettings.json" Line="10" Column="34" />
-      <File FileName="Account.Data/AccountContext.cs" Line="7" Column="1" />
-      <File FileName="Account.Data/Interfaces/IAccountRepository.cs" Line="1" Column="1" />
+      <File FileName="Account.WebApi/Controllers/AccountController.cs" Line="77" Column="1" />
+      <File FileName="Account.Data/UnitOfWork/UnitOfWork.cs" Line="20" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,6 +14,7 @@
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
               <Node name="Interfaces" expanded="True" />
+              <Node name="Migrations" expanded="True" />
               <Node name="Repositories" expanded="True" />
               <Node name="UnitOfWork" expanded="True" />
             </Node>
@@ -33,11 +30,11 @@
                 <Node name="Query" expanded="True" />
                 <Node name="Request" expanded="True" />
               </Node>
-              <Node name="AccountService.cs" selected="True" />
             </Node>
             <Node name="Account.WebApi" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Mapper" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
             </Node>
           </Node>
         </State>
@@ -51,6 +48,7 @@
       <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="32" column="1" />
       <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="102" column="1" />
       <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="121" column="1" />
+      <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="77" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
