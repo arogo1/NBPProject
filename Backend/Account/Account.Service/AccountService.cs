@@ -35,12 +35,10 @@ namespace Account.Service
             await _unitOfWork.Accounts.Add(_mapper.Map<Domain.Account>(accountToCreateDto));
         }
 
-        public async Task<IEnumerable<AccountDto>> SearchAccount(SearchAccount query)
+        public async Task<List<AccountDto>> SearchAccount(SearchAccount query)
         {
-            await _unitOfWork.Accounts.GetWhere(x =>
-                x.FirstName.Equals(query.FirstName) && x.LastName.Equals(query.LastName)
-            );
-            return null;
+            var result = await _unitOfWork.Accounts.SearchAccount(query);
+            return _mapper.Map<List<AccountDto>>(result);
         }
 
         public async Task<int> DeleteAccount(AccountDto accountDto)

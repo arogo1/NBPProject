@@ -51,14 +51,13 @@ namespace Account.WebApi.Controllers
 
         [HttpGet]
         [Route("searchAccount")]
-        public async Task<ActionResult<IEnumerable<AccountDto>>> SearchAccount([FromBody] SearchAccount query)
+        public async Task<ActionResult<List<AccountDto>>> SearchAccount([FromQuery] SearchAccount query)
         {
             try
             {
                 if (query == null) return BadRequest("Query cannot be empty");
 
                 var accounts = await _accountService.SearchAccount(query);
-                if (accounts == null) return NotFound();
 
                 return Ok(accounts);
             }

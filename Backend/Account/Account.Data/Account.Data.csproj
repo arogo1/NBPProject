@@ -14,5 +14,6 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Repositories\" />
     <Folder Include="UnitOfWork\" />
+    <Folder Include="Query\" />
   </ItemGroup>
 </Project>

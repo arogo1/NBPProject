@@ -10,7 +10,7 @@ namespace Account.Service.Interfaces
         Task<AccountDto> GetAccountById(int id);
         Task<int> UpdateAccount(AccountDto accountToUpdateDto);
         Task AddNewAccount(AccountDto accountToCreateDto);
-        Task<IEnumerable<AccountDto>> SearchAccount(SearchAccount query);
+        Task<List<AccountDto>> SearchAccount(SearchAccount query);
         Task<int> DeleteAccount(AccountDto accountDto);
     }
 }
