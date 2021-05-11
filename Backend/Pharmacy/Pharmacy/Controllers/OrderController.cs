@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Service.Interfaces;
 using Pharmacy.Service.Models.DTO;
@@ -10,6 +12,7 @@ namespace Pharmacy.Controllers
 {
     [ApiController]
     [Route("order")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
@@ -24,6 +27,7 @@ namespace Pharmacy.Controllers
         }
 
         [HttpPost]
+        [Route("create")]
         public async Task<ActionResult> CreateOrder([FromBody] CreateOrderRequest request)
         {
             try
@@ -47,7 +51,7 @@ namespace Pharmacy.Controllers
         }
 
         [HttpGet]
-        [Route("/id")]
+        [Route("id")]
         public async Task<ActionResult> GetOrderById(int id)
         {
             try

@@ -8,8 +8,9 @@ namespace Pharmacy.Service.Models.Requests
         [Required]
         public int AccountId { get; set; }
 
-        [Required]
         public int RecipeId { get; set; }
+
+        public int MedicineId { get; set; }
 
         [Required]
         public DateTime SaleDate { get; set; }

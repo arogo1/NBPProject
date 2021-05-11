@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Pharmacy.Service.Interfaces;
 using Pharmacy.Service.Models.DTO;
@@ -10,6 +12,7 @@ namespace Pharmacy.Controllers
 {
     [ApiController]
     [Route("pharmacy")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class PharmacyController : ControllerBase
     {
         private readonly IPharmacyService _pharmacyService;

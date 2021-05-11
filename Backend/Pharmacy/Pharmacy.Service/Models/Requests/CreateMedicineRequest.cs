@@ -15,5 +15,8 @@ namespace Pharmacy.Service.Models.Requests
 
         [Required]
         public double Price { get; set; }
+
+        [Required]
+        public bool IsRecipeRequired { get; set; }
     }
 }
