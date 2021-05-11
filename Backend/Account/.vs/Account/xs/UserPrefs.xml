@@ -1,30 +1,43 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{3D0A2AE8-C9DD-4C6E-B99E-4B676882EA74}|Default">
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Account.WebApi/Controllers/AccountController.cs" Line="64" Column="32" />
-      <File FileName="Account.Data/UnitOfWork/UnitOfWork.cs" Line="20" Column="1" />
-      <File FileName="Account.Service/AccountService.cs" Line="41" Column="58" />
-      <File FileName="Account.Data/Repositories/GenericRepository.cs" Line="23" Column="1" />
-      <File FileName="Account.Domain/Account.cs" Line="1" Column="1" />
-      <File FileName="Account.Data/Repositories/AccountRepository.cs" Line="16" Column="1" />
-      <File FileName="Account.WebApi/Program.cs" Line="1" Column="1" />
-      <File FileName="Account.WebApi/Startup.cs" Line="30" Column="50" />
-      <File FileName="Account.WebApi/appsettings.json" Line="10" Column="23" />
-      <File FileName="Account.Data/Interfaces/IAccountRepository.cs" Line="9" Column="73" />
-      <File FileName="Account.Service/Interfaces/IAccountService.cs" Line="13" Column="67" />
-      <File FileName="Account.Data/AccountContext.cs" Line="1" Column="1" />
+      <File FileName="Account.Domain/Account.cs" />
+      <File FileName="Account.WebApi/appsettings.json" Line="13" Column="48" />
+      <File FileName="Account.Data/Interfaces/IAccountRepository.cs" />
+      <File FileName="Account.Service/Interfaces/IAccountService.cs" />
+      <File FileName="Account.Data/AccountContext.cs" Line="15" Column="1" />
+      <File FileName="Account.Service/Models/DTO/AccountDto.cs" />
+      <File FileName="Account.WebApi/Configuration/AuthResult.cs" Line="7" Column="1" />
+      <File FileName="Account.WebApi/Configuration/JwtConfig.cs" Line="8" Column="1" />
+      <File FileName="Account.WebApi/Startup.cs" Line="79" Column="47" />
+      <File FileName="Account.WebApi/Account.WebApi.csproj" Line="1" Column="1" />
+      <File FileName="Account.Data/Migrations/20210511133338_Add authentication to API.cs" Line="1" Column="1" />
+      <File FileName="Account.WebApi/Controllers/AuthMenagmentController.cs" Line="49" Column="10" />
+      <File FileName="Account.WebApi/Controllers/AccountController.cs" Line="156" Column="57" />
+      <File FileName="Account.Service/AccountService.cs" Line="51" Column="10" />
+      <File FileName="Account.Data/UnitOfWork/UnitOfWork.cs" Line="12" Column="45" />
+      <File FileName="Account.Data/Repositories/AccountRepository.cs" Line="9" Column="46" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Account" expanded="True">
-            <Node name="Account.Data" expanded="True" />
+            <Node name="Account.Data" expanded="True">
+              <Node name="Migrations" expanded="True" />
+              <Node name="Repositories" expanded="True" />
+              <Node name="UnitOfWork" expanded="True" />
+            </Node>
             <Node name="Account.Domain" expanded="True" />
             <Node name="Account.Service" expanded="True">
               <Node name="Interfaces" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="DTO" expanded="True" />
+                <Node name="Request" expanded="True" />
+              </Node>
+              <Node name="AccountService.cs" selected="True" />
             </Node>
             <Node name="Account.WebApi" expanded="True">
+              <Node name="Configuration" expanded="True" />
               <Node name="Controllers" expanded="True" />
             </Node>
           </Node>
@@ -36,11 +49,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="32" column="1" />
-      <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="101" column="1" />
-      <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="120" column="1" />
-      <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="76" column="1" />
-      <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="58" column="1" />
+      <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="46" column="1" />
+      <Breakpoint file="/Users/arnesrogo/Projects/NBPProject/Backend/Account/Account.WebApi/Controllers/AccountController.cs" relfile="Account.WebApi/Controllers/AccountController.cs" line="156" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

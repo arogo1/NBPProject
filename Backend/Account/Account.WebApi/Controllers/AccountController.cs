@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 using System.Threading.Tasks;
 using Account.Service.Interfaces;
 using Account.Service.Models.DTO;
 using Account.Service.Models.Query;
 using Account.Service.Models.Request;
+using Account.WebApi.Configuration;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Account.WebApi.Controllers
 {
@@ -16,11 +24,15 @@ namespace Account.WebApi.Controllers
     {
         private readonly IAccountService _accountService;
         private readonly IMapper _mapper;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly JwtConfig _jwtConfig;
 
-        public AccountController(IAccountService accountService, IMapper mapper)
+        public AccountController(IAccountService accountService, IMapper mapper, UserManager<IdentityUser> userManager, IOptionsMonitor<JwtConfig> optionsMonitor)
         {
             _accountService = accountService;
             _mapper = mapper;
+            _userManager = userManager;
+            _jwtConfig = optionsMonitor.CurrentValue;
         }
 
         [HttpGet]
@@ -51,6 +63,7 @@ namespace Account.WebApi.Controllers
 
         [HttpGet]
         [Route("searchAccount")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<List<AccountDto>>> SearchAccount([FromQuery] SearchAccount query)
         {
             try
@@ -129,6 +142,57 @@ namespace Account.WebApi.Controllers
             {
                 throw e;
             }
+        }
+
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult> Login([FromBody] LoginRequest request)
+        {
+            try
+            {
+                if (request == null) return BadRequest("Invalid request");
+
+                var account = await _accountService.Login(request.UserName, request.Password);
+                string token = null;
+                if (account != null)
+                {
+                    token = GenerateJwtToken(account);
+                    if(!string.IsNullOrEmpty(token)) return Ok(new AuthResult() { Token = token, Success = true });
+                }
+
+                return BadRequest("Something went wrong");
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        private string GenerateJwtToken(AccountDto user)
+        {
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+
+            var key = Encoding.ASCII.GetBytes(_jwtConfig.Secret);
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                //Subject = new ClaimsIdentity(new[]
+                //{
+                //    new Claim("Id", user.Id),
+                //    new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                //    new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                //    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                //}),
+                Expires = DateTime.UtcNow.AddHours(6),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = jwtTokenHandler.CreateToken(tokenDescriptor);
+            var jwtToken = jwtTokenHandler.WriteToken(token);
+
+            return jwtToken;
         }
     }
 }

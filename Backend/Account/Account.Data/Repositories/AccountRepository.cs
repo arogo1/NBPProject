@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Account.Data.Interfaces;
 using Account.Service.Models.Query;
 using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
 
 namespace Account.Data.Repositories
 {

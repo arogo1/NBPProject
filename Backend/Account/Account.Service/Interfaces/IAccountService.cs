@@ -12,5 +12,6 @@ namespace Account.Service.Interfaces
         Task AddNewAccount(AccountDto accountToCreateDto);
         Task<List<AccountDto>> SearchAccount(SearchAccount query);
         Task<int> DeleteAccount(AccountDto accountDto);
+        Task<AccountDto> Login(string username, string password);
     }
 }

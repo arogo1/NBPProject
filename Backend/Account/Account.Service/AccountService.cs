@@ -5,6 +5,7 @@ using Account.Service.Interfaces;
 using Account.Service.Models.DTO;
 using Account.Service.Models.Query;
 using AutoMapper;
+using System.Linq;
 
 namespace Account.Service
 {
@@ -44,6 +45,14 @@ namespace Account.Service
         public async Task<int> DeleteAccount(AccountDto accountDto)
         {
             return await _unitOfWork.Accounts.Remove(_mapper.Map<Domain.Account>(accountDto));
+        }
+
+        public async Task<AccountDto> Login(string username, string password)
+        {
+            var result = await _unitOfWork.Accounts.GetWhere(x => x.Username.Contains(username) && x.Password.Contains(password));
+            if(result != null && result.Any()) 
+                return _mapper.Map<AccountDto>(result.ToList().FirstOrDefault());
+            return null;
         }
     }
 }
