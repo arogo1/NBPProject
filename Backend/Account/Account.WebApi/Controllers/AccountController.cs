@@ -11,7 +11,6 @@ using Account.WebApi.Configuration;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -24,19 +23,18 @@ namespace Account.WebApi.Controllers
     {
         private readonly IAccountService _accountService;
         private readonly IMapper _mapper;
-        private readonly UserManager<IdentityUser> _userManager;
         private readonly JwtConfig _jwtConfig;
 
-        public AccountController(IAccountService accountService, IMapper mapper, UserManager<IdentityUser> userManager, IOptionsMonitor<JwtConfig> optionsMonitor)
+        public AccountController(IAccountService accountService, IMapper mapper, IOptionsMonitor<JwtConfig> optionsMonitor)
         {
             _accountService = accountService;
             _mapper = mapper;
-            _userManager = userManager;
             _jwtConfig = optionsMonitor.CurrentValue;
         }
 
         [HttpGet]
         [Route("getAccountById")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<AccountDto>> GetAccountById(int id)
         {
             try
@@ -82,6 +80,7 @@ namespace Account.WebApi.Controllers
 
         [HttpPut]
         [Route("updateAccount")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> UpdateAccount(int id, [FromBody] UpdateAccountRequest request)
         {
             try
@@ -125,6 +124,7 @@ namespace Account.WebApi.Controllers
         }
 
         [HttpDelete]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> DeleteAccount(int id)
         {
             try
