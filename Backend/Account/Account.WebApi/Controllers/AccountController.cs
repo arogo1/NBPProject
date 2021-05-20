@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Account.Service.Interfaces;
 using Account.Service.Models.DTO;
+using Account.Service.Models.Enum;
 using Account.Service.Models.Query;
 using Account.Service.Models.Request;
 using Account.WebApi.Configuration;
@@ -61,7 +63,7 @@ namespace Account.WebApi.Controllers
 
         [HttpGet]
         [Route("searchAccount")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin, Worker")]
         public async Task<ActionResult<List<AccountDto>>> SearchAccount([FromQuery] SearchAccount query)
         {
             try
@@ -178,13 +180,14 @@ namespace Account.WebApi.Controllers
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                //Subject = new ClaimsIdentity(new[]
-                //{
-                //    new Claim("Id", user.Id),
-                //    new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                //    new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                //    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-                //}),
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    //new Claim("Id", user.Id),
+                    //new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                    //    new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                    //    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                    new Claim(ClaimTypes.Role, Enum.GetName(typeof(Role), user.Role))
+                }),
                 Expires = DateTime.UtcNow.AddHours(6),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
