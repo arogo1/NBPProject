@@ -12,7 +12,7 @@ namespace Pharmacy.Controllers
 {
     [ApiController]
     [Route("pharmacy")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin, Worker")]
     public class PharmacyController : ControllerBase
     {
         private readonly IPharmacyService _pharmacyService;
